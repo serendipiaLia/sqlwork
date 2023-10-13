@@ -66,5 +66,8 @@ SELECT * FROM emp;
 -- 반올림 : ROUND(숫자, 자리수)
 SELECT ename 사원이름,
        salary 급여,
-       ROUND (salary/30, -2) 일급
+       salary/30 일급,
+       ROUND(salary/30, 1) 결과1,
+       ROUND(salary/30, 0) 결과2,
+       ROUND(salary/30, -1) 결과3       
 FROM emp;
