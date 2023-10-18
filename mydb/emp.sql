@@ -71,3 +71,29 @@ SELECT ename 사원이름,
        ROUND(salary/30, 0) 결과2,
        ROUND(salary/30, -1) 결과3       
 FROM emp;
+
+-- 급여가 가장 많은 사원을 검색하시오 
+-- MAX(SALARY) , subquery 사용
+SELECT * FROM emp
+WHERE salary = (SELECT MAX(salary) FROM emp); 
+
+SELECT * FROM emp
+WHERE salary = (SELECT MIN(salary) FROM emp); 
+
+    -- 최고급여만 검색하기 
+    SELECT MAX(salary) FROM emp;
+    -- 최저급여만 검색하기
+    SELECT MIN(salary) FROM emp;
+
+-- 최고,최저 급여 사원이름과 급여 정보 출력하기
+SELECT ename, salary FROM emp
+WHERE salary = (SELECT MAX(salary) FROM emp)
+    OR salary = (SELECT MIN(salary) FROM emp);
+    
+
+
+
+
+
+
+

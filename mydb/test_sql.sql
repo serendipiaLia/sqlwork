@@ -4,7 +4,7 @@ SELECT * FROM customer;
 -- 1/ 모든 고객의 이름과 주소 검색
 SELECT name, address FROM customer;
 
--- 2/ 모든 고객의 이름, 주소, 전화번호 검색
+-- 2/ 모든 고객의 이름o, 주소, 전화번호 검색
 SELECT name, address, phone FROM customer;
 
 -- 3/ 주소가 '영국'인 고객 검색

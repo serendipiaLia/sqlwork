@@ -1,12 +1,18 @@
 -- 조인Join : 두 테이블을 연결하는 기능
 -- 동등조인(equi join/inner join) : 조인 조건이 정확히 일치하는 경우에 결과 출력
 -- 외부조인(outer join) : 조인 조건이 정확히 일치하지 않아도 모든 결과를 출력 
+SELECT * FROM orders;
+SELECT * FROM customer;
 
 -- 고객(customer)과 고객의 주문(orders)에 관한 데이터를 모두 검색
 SELECT cus.name, ord.saleprice  
 FROM customer cus, orders ord 
 WHERE cus.custid = ord.custid
 ORDER BY name; -- 이름으로 정렬(자동으로 그룹화 됨)
+
+-- 카테시안 곱 : customr(6) x orders(10) = 60
+SELECT cus.name, ord.saleprice  
+FROM customer cus, orders ord;
 
 -- 외부조인(OUTER JOIN) 
 -- JOIN 조건에 일치(충족)하지 않아도 모두 출력
