@@ -22,6 +22,7 @@ VALUES ('4', '류현진', '미국 토론토', '');
 INSERT INTO customer(custid, name, address, phone)
 VALUES ('5', '손흥민', '영국 토트넘', '000-8000-0001');
 
+COMMIT;
 SELECT * FROM customer;
 
 

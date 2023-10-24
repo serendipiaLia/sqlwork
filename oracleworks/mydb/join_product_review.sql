@@ -24,7 +24,7 @@ FROM product a JOIN product_review b
 ON a.product_code = b.product_code; 
 
 -- 외부조인(LEFT, RIGHT, OUTER 조인) / OUTER 생략가능
--- 리뷰의 유무와 상관없이 모든 상품의 정보를 검색  
+-- 리뷰의 유무 상관없이 모든 상품의 정보를 검색  
 SELECT a.product_name, b.review_no, b.product_code, b.content, b.regdate
 FROM product a LEFT JOIN product_review b
 ON a.product_code = b.product_code; 

@@ -18,10 +18,15 @@ CREATE TABLE drink(
 
 INSERT INTO drink VALUES ('A01', '아메리카노');
 INSERT INTO drink VALUES ('B01', '카페라떼');
+INSERT INTO drink VALUES ('C01', '허니자몽블랙티');
+
 
 COMMIT;
 SELECT * FROM cafe_order;
 SELECT * FROM drink;
+
+DROP TABLE cafe_order;
+DROP TABLE drink;
 
 -- 주문번호, 음료코드, 음료명, 주문수량 모두 출력 
 -- 동등조인 
@@ -39,7 +44,10 @@ ON a.drink_code = b.drink_code;
     FROM cafe_order a JOIN drink b
     USING (drink_code); 
 
-
-
+-- 주문이 없는 음료는 포함해서 모든 정보 출력!
+-- 외부조인 (LEFT, RIGHT)
+SELECT a.order_no, a.drink_code, b.drink_name, a.order_cnt
+FROM cafe_order a RIGHT JOIN drink b
+ON a.drink_code = b.drink_code;
 
 
