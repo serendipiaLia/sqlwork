@@ -14,3 +14,4 @@ VALUES (seq_sid.NEXTVAL, '우영우', '한강대학교', '1991-10-01', 'woo@kh.kr');
 
 SELECT * FROM student;
 
+commit;
