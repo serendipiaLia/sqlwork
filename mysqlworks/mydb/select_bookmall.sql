@@ -1,4 +1,6 @@
 -- bookmall
+
+-- <book> ---------------------------------------------------
 select * from book;
 
 -- 도서를 이름 순으로 정렬
@@ -25,7 +27,7 @@ select * from book where price between 10000 and 20000;
 select * from book where price <> 13000;
 select * from book where price != 13000;
 
-
+-- <customer> ------------------------------------------------
 select * from customer;
 -- 고객을 이름순으로 정렬하시오 (오름차순)
 select * from customer order by name;
@@ -43,4 +45,21 @@ select count(*) as 총_인원 from customer;
 
 -- 도서 가격이 가장 높은 도서를 검색하시오 -> 서브쿼리 
 select * from book where price = (select max(price) from book);
+
+-- <orders> --------------------------------------
+-- 주문 테이블에서 주문 가격의 총 판매액을 구하시오
+select sum(saleprice) 총판매액 from orders;
+	-- 총 판매액과 총평균금액
+    select sum(saleprice) 총판매액, round(avg(saleprice), 0) 총평균액 from orders;
+
+-- 고객별(custid)로 주문한 도서의 총 판매액을 계산
+-- 출력 : custid, 도서 수량, 총 판매액
+select custid, count(*) 도서수량, sum(saleprice) 총판매액 from orders group by custid;
+
+-- 도서 수량이 3권이상 구매한 고객 자료 검색
+select custid, count(*) 도서수량, sum(saleprice) 총판매액 from orders group by custid
+having count(*) >= 3;
+
+
+
 
